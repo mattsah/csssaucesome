@@ -1,0 +1,123 @@
+<style>
+	/*
+	 * Operation
+	 */
+	.options > label {
+		position: relative;
+		overflow: hidden;
+		float: left;
+	}
+
+	.options > label span {
+		position: relative;
+		top: 0;
+		z-index: 1;
+	}
+
+	.options > label input[type=radio],
+	.options > label input[type=checkbox] {
+		position: absolute;
+		top: -30px;
+		left: -30px;
+		outline: solid 600px transparent;
+		z-index: 0;
+	}
+
+
+	/*
+	 * Layout and Theme
+	 */
+
+	.options > label {
+		width: 22.5%;
+		margin: 0 1.25%;
+		outline: solid 1px #222;
+		height: 200px;
+		line-height: 200px;
+		text-align: center;
+		cursor: pointer;
+		color: black;
+	}
+
+	.options > label span {
+		transition: top 500ms;
+	}
+
+	.options > label:hover span {
+		top: -10px;
+	}
+
+	.options > label input[type=radio]:checked,
+	.options > label input[type=checkbox]:checked {
+		outline-color: #8FD2FF;
+	}
+</style>
+
+<div>
+	<h3>Bold Options</h3>
+	<p class="highlight">
+		This technique makes use of the outline color on checkbox or radio inputs in order to
+		highlight selected options from among larger block-style options which can be styled as
+		you see fit.  The label wraps the input and gets used as the primary element.
+	</p>
+
+	<h3>Support Required</h3>
+	<ul>
+		<li>Attribute Selectors ([type=...])</li>
+		<li>Pseudo-selector (:checked)</li>
+	</ul>
+
+	<form>
+		<h4>Using Radio Input</h4>
+
+		<fieldset class="options">
+			<label>
+				<span>Option 1</span>
+				<input type="radio" name="example" value="0" />
+			</label>
+
+			<label>
+				<span>Option 2</span>
+				<input type="radio" name="example" value="1" />
+			</label>
+
+			<label>
+				<span>Option 3</span>
+				<input type="radio" name="example" value="2" />
+			</label>
+
+			<label>
+				<span>Option 4</span>
+				<input type="radio" name="example" value="3" />
+			</label>
+		</fieldset>
+	</form>
+
+
+	<form>
+		<h4>Using Checkboxes</h4>
+
+		<fieldset class="options">
+			<label>
+				<span>Option 1</span>
+				<input type="checkbox" name="example" value="0" />
+			</label>
+
+			<label>
+				<span>Option 2</span>
+				<input type="checkbox" name="example" value="1" />
+			</label>
+
+			<label>
+				<span>Option 3</span>
+				<input type="checkbox" name="example" value="2" />
+			</label>
+
+			<label>
+				<span>Option 4</span>
+				<input type="checkbox" name="example" value="3" />
+			</label>
+		</fieldset>
+	</form>
+
+</div>

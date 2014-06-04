@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>CSS is Awesome</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<link rel="stylesheet" href="http://dotink.github.io/inKLing/inkling.css" />
+		<link rel="stylesheet" href="http://dotink.github.io/inKLing/themes/default.css" />
+
+		<style>
+			body > * > * {
+				width: 80%;
+				margin: 0 auto;
+			}
+
+			body > header {
+				padding: 3em 0;
+			}
+
+			ul {
+				font-size: 1.6em;
+				color: #FF8F90;
+			}
+		</style>
+
+		<script type="text/javascript" src="js/cinch.js"></script>
+		<script type="text/javascript" src="js/microajax.js"></script>
+
+		<script type="text/javascript">
+			page = new Cinch(document, window.location);
+
+			page.register('ajax', microAjax);
+
+			page.mods.ajax('tricks/' + page.params.trick + '.html', function(result) {
+				document.getElementById('trick').innerHTML = result;
+			});
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>CSS Tricks</h1>
+			<h2>Creative CSS hacks, semantically packages for immediate use</h2>
+		</header>
+		<div id="trick" role="main"></div>
+		<footer></footer>
+	</body>
+</html>

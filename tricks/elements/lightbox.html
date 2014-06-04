@@ -1,0 +1,76 @@
+<style>
+	.lightbox {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 100%;             /* position the block itself off the screen to not cover the page */
+		width: 100%;            /* width and height should be 100% to take up full view */
+		height: 100%;           /* if left was not 100%, this would mask the page itself */
+		padding: 0;
+		margin: 0;
+		text-align: center;     /* center the image itself */
+	}
+
+	.lightbox:before {
+		display: inline-block;  /* inline block allows for vertical centering */
+		vertical-align: middle; /* align this guy to the middle */
+		height: 100%;
+		content: '';           
+	}
+
+	.thumbnail {
+		max-width: 250px;
+		max-height: 250px;
+	}
+
+	.lightbox  img,
+	.lightbox .close {
+		display: none;
+	}
+
+	.lightbox img {
+		max-height: 80%;
+		max-width: 90%;
+		padding: 300%;      /* this combined with equal negative margin creates filler padding */
+		margin: -300%;      /* offsets the padding */
+		margin-left: -500%; /* offset left more to compensate for lightbox position */
+		background-color: rgba(0,0,0,.75);
+		vertical-align: middle;
+		opacity: 0;
+		transition: 500ms opacity;
+	}
+
+	.lightbox img:target {
+		display: inline-block;
+		opacity: 1;
+	}
+
+	.lightbox img:target ~ a.close {
+		display: block;
+		position: absolute;
+		top: 20px;
+		left: -100px; /* offset since our lightbox has left 100% so this shows up on the right */
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #fff;
+	}
+</style>
+
+<div>
+	<h3>Lightbox</h3>
+	<p class="highlight">
+	</p>
+
+	<a href="#kitten" class="thumbnail"><img src="http://placekitten.com/g/250/250" /></a>
+	<a href="#generic1" class="thumbnail"><img src="http://placehold.it/250/81D17A/000000" /></a>
+	<a href="#generic2" class="thumbnail"><img src="http://placehold.it/250/7AADD1/000000" /></a>
+	<a href="#generic3" class="thumbnail"><img src="http://placehold.it/250/D19E7A/000000" /></a>
+
+	<div class="lightbox">
+		<img id="kitten" src="http://placekitten.com/800/800" />
+		<img id="generic1" src="http://placehold.it/1024x768/81D17A/000000" />
+		<img id="generic2" src="http://placehold.it/1600x900/7AADD1/000000" />
+		<img id="generic3" src="http://placehold.it/900x1600/D19E7A/000000" />
+		<a href="##" class="close">Close</a>
+	</div>
+</div>
