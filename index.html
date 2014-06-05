@@ -6,14 +6,16 @@
 
 		<link rel="stylesheet" href="http://dotink.github.io/inKLing/inkling.css" />
 		<link rel="stylesheet" href="http://dotink.github.io/inKLing/themes/default.css" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/styles/tomorrow.min.css" />
 
 		<style>
 			body > * > * {
-				width: 80%;
+				width: 85%;
 				margin: 0 auto;
 			}
 
-			body > header {
+			body > header,
+			body > footer {
 				padding: 3em 0;
 			}
 
@@ -21,27 +23,186 @@
 				font-size: 1.6em;
 				color: #FF8F90;
 			}
+
+			.container {
+				margin: 3em auto;
+			}
+
+			.tricks {
+				background-color: #7F8B7E;
+			}
+
+			.tricks h2 {
+				color: #fff;
+			}
+
+			.tricks h3 {
+				color: #fff;
+				background-color: rgba(0,0,0,.75);
+				width: 95%;
+				position: absolute;
+				text-align: center;
+				padding: 2.5%;
+				margin: 0;
+				left: 0;
+				top: -400%;
+				transition: 300ms top;
+			}
+
+			.tricks .group div {
+				position: relative;
+			}
+
+			.tricks .group div:hover h3 {
+				top: 0;
+			}
+
+			.tricks img {
+				width: 100%;
+			}
+
+			.addendum h3 {
+				text-align: center;
+			}
+
+			.addendum.group div {
+				border-left: solid 1px #000;
+				margin-left: -1px;
+			}
+
+			.addendum.group :first-child {
+				border-left: none;
+			}
+
+			.messaging {
+				font-size: 1.4em;
+			}
+
+			a.action {
+				width: 90%;
+				padding: 2.5% 5%;
+			}
+
 		</style>
 
 		<script type="text/javascript" src="js/cinch.js"></script>
 		<script type="text/javascript" src="js/microajax.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/languages/css.min.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/languages/xml.min.js"></script>
 
+	<body>
+		<header>
+			<h1>CSS Sauce Some</h1>
+			<h2>Creative CSS hacks, semantically packages for immediate use</h2>
+		</header>
+		<div id="trick" role="main">
+			<div class="introduction">
+				<div class="featurette group">
+					<div>
+						<section class="site">
+							<h3>About This Site</h3>
+							<p class="highlight">
+								The tricks you see here are designed to keep markup simple and semantic, placing additional burden on CSS thereby exposing new tricks and techniques.
+							</p>
+							<p>
+								This site is a bit of a playground designed to showcase some interesting CSS "hacks" which should also be practically useful as the web progresses.  The goal is <em>not</em> to avoid javascript at all costs, but to draw attention to the fact that CSS is an extremely powerful tool.
+							</p>
+						</section>
+					</div>
+					<div>
+						<section class"author">
+							<h3>About The Author</h3>
+							<p>
+								I'm a web developer with <a href="http://www.imarc.net/">iMarc, LLC</a> living in San Jose, CA and working in the Santa Cruz office.  While I focus mostly on backend work for my job, I'm often tasked with implementing difficult design elements.  I frequently come at CSS and HTML from the perspective of someone who deals with data, so I am consistently looking for simplicity and semantics.
+							</p>
+							<p class="highlight">
+								Part of the reason I love CSS is because it keeps HTML clean.
+							</p>
+						</section>
+					</div>
+				</div>
+
+				<div class="messaging warning">
+					<strong>Warning:</strong> This website uses a super small AJAX library which only supports standard XMLHTTPRequest objects.  This prevents Internet Explorer version 10 and under from viewing individual tricks although most (all?) of these tricks should work in modern versions of IE, including 10.
+				</div>
+			</div>
+
+
+			<div class="tricks container">
+				<h2>See the Tricks</h2>
+				<div class="catalogue group">
+					<div>
+						<a href="?trick=elements/lightbox"><img src="/images/elements_lightbox.jpg" /></a>
+						<h3>Ultimate Lightbox</h3>
+					</div>
+					<div>
+						<a href="?trick=forms/options"><img src="/images/forms_options.jpg" /></a>
+						<h3>Boldest Options</h3>
+					</div>
+					<div>
+						<a href="?trick=elements/lightbox"><img src="http://placehold.it/640/f8f8f8/000000" /></a>
+						<h3>Coming Soonish</h3>
+					</div>
+					<div>
+						<a href="?trick=elements/lightbox"><img src="http://placehold.it/640/ffffff/000000" /></a>
+						<h3>Coming Soonish</h3>
+					</div>
+				</div>
+			</div>
+			<div class="addendum brochure group container">
+				<div>
+					<section>
+						<h3>Other Resources</h3>
+						<p>
+							This is not my only project.  A lot of my work gets pushed back to <a href="https://github.com/dotink/">my own pet organization</a>.
+						</p>
+						<p>
+							If you think the markup for this site looks nice, perhaps you should try out <a href="http://dotink.github.io/inKLing">inKLing</a> a CSS "framework" for semantic rapid proto-typing which can be carried over into production.
+						</p>
+					</section>
+				</div>
+				<div>
+					<section>
+						<h3>Contribute</h3>
+						<p>
+							If you have suggestions or want to contribute your own tricks, feel free to fork and send a pull request.  The aim of all the tricks on this site (not including the site itself) is to work on IE9+, so also feel free to submit issues.
+						</p>
+						<a href="https://github.com/mattsah/csssaucesome/" class="action">visit this project on github</a>
+					</section>
+				</div>
+				<div>
+					<section>
+						<h3>Contact</h3>
+						<p>
+							Got questions or comments?  Best bet is to <a href="mailto:matthew.sahagian@gmail.com">send me an e-mail directly</a>.
+						</p>
+						<p>
+							If you're just looking to know what I'm up to or want to chat, follow or hangout with me <a href="https://plus.google.com/102989537271487203770/about">on Google+</a>
+						</p>
+					</section>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="widgets group">
+				<script data-gittip-username="mattsah" src="https://gttp.co/v1.js"></script>
+			</div>
+		</footer>
 		<script type="text/javascript">
 			page = new Cinch(document, window.location);
 
 			page.register('ajax', microAjax);
 
-			page.mods.ajax('tricks/' + page.params.trick + '.html', function(result) {
-				document.getElementById('trick').innerHTML = result;
-			});
+			if (page.params.trick != undefined) {
+				page.mods.ajax('tricks/' + page.params.trick + '.html', function(result) {
+					document.getElementById('trick').innerHTML = result;
+					hljs.highlightBlock(document.getElementById('css'));
+					hljs.highlightBlock(document.getElementById('html'));
+				});
+			}
+
+			hljs.configure({});
 		</script>
-	</head>
-	<body>
-		<header>
-			<h1>CSS Tricks</h1>
-			<h2>Creative CSS hacks, semantically packages for immediate use</h2>
-		</header>
-		<div id="trick" role="main"></div>
-		<footer></footer>
 	</body>
 </html>

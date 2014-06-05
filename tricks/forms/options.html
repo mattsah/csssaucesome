@@ -120,4 +120,93 @@
 		</fieldset>
 	</form>
 
+	<h3>CSS</h3>
+	<pre>
+		<code id="css" class="hljs">
+/*
+ * Operation
+ */
+.options > label {
+	position: relative;
+	overflow: hidden;
+	float: left;
+}
+
+.options > label span {
+	position: relative;
+	top: 0;
+	z-index: 1;
+}
+
+.options > label input[type=radio],
+.options > label input[type=checkbox] {
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	outline: solid 600px transparent;
+	z-index: 0;
+}
+
+
+/*
+ * Layout and Theme
+ */
+
+.options > label {
+	width: 22.5%;
+	margin: 0 1.25%;
+	outline: solid 1px #222;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	cursor: pointer;
+	color: black;
+}
+
+.options > label span {
+	transition: top 500ms;
+}
+
+.options > label:hover span {
+	top: -10px;
+}
+
+.options > label input[type=radio]:checked,
+.options > label input[type=checkbox]:checked {
+	outline-color: #8FD2FF;
+}
+		</code>
+	</pre>
+
+	<div class="messaging notice">
+		The code below is exactly the same for radio style with the exception of the input's type attribute.  Note that in your own code you would also likely want to change the name and value attributes.
+	</div>
+
+	<h3>Markup</h3>
+	<pre>
+		<code id="html" class="hljs">
+&lt;fieldset class=&quot;options&quot;&gt;
+	&lt;label&gt;
+		&lt;span&gt;Option 1&lt;/span&gt;
+		&lt;input type=&quot;checkbox&quot; name=&quot;example&quot; value=&quot;0&quot; /&gt;
+	&lt;/label&gt;
+
+	&lt;label&gt;
+		&lt;span&gt;Option 2&lt;/span&gt;
+		&lt;input type=&quot;checkbox&quot; name=&quot;example&quot; value=&quot;1&quot; /&gt;
+	&lt;/label&gt;
+
+	&lt;label&gt;
+		&lt;span&gt;Option 3&lt;/span&gt;
+		&lt;input type=&quot;checkbox&quot; name=&quot;example&quot; value=&quot;2&quot; /&gt;
+	&lt;/label&gt;
+
+	&lt;label&gt;
+		&lt;span&gt;Option 4&lt;/span&gt;
+		&lt;input type=&quot;checkbox&quot; name=&quot;example&quot; value=&quot;3&quot; /&gt;
+	&lt;/label&gt;
+&lt;/fieldset&gt;
+		</code>
+	</pre>
+
 </div>

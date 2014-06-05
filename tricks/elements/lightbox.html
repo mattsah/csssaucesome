@@ -1,21 +1,25 @@
 <style>
+
+	/*
+	 * Operation
+	 */
 	.lightbox {
 		display: block;
 		position: fixed;
 		top: 0;
-		left: 100%;             /* position the block itself off the screen to not cover the page */
-		width: 100%;            /* width and height should be 100% to take up full view */
-		height: 100%;           /* if left was not 100%, this would mask the page itself */
+		left: 100%;
+		width: 100%;
+		height: 100%;
 		padding: 0;
 		margin: 0;
-		text-align: center;     /* center the image itself */
+		text-align: center;
 	}
 
 	.lightbox:before {
-		display: inline-block;  /* inline block allows for vertical centering */
-		vertical-align: middle; /* align this guy to the middle */
+		display: inline-block;
+		vertical-align: middle;
 		height: 100%;
-		content: '';           
+		content: '';
 	}
 
 	.thumbnail {
@@ -29,37 +33,67 @@
 	}
 
 	.lightbox img {
-		max-height: 80%;
+		max-height: 75%;
 		max-width: 90%;
-		padding: 300%;      /* this combined with equal negative margin creates filler padding */
-		margin: -300%;      /* offsets the padding */
-		margin-left: -500%; /* offset left more to compensate for lightbox position */
-		background-color: rgba(0,0,0,.75);
+		padding: 300%;
+		margin: -300%;
+		margin-left: -500%;
 		vertical-align: middle;
-		opacity: 0;
-		transition: 500ms opacity;
 	}
 
 	.lightbox img:target {
 		display: inline-block;
-		opacity: 1;
 	}
 
 	.lightbox img:target ~ a.close {
 		display: block;
 		position: absolute;
+	}
+
+	/*
+	 * Layout and Theme
+	 */
+	.lightbox img {
+		background-color: rgba(0,0,0,.75);
+	}
+
+	.lightbox a.close {
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		font-size: 40px;
+		border: solid 3px #fff;
+		background-color: #000;
+		border-radius: 40px;
+		overflow: hidden;
 		top: 20px;
-		left: -100px; /* offset since our lightbox has left 100% so this shows up on the right */
+		left: -100px;
 		text-transform: uppercase;
 		text-decoration: none;
 		color: #fff;
+		box-shadow: 0 0 20px #000;
 	}
+
+	.lightbox a.close:before {
+		display: block;
+		content: '❌';
+	}
+
+
 </style>
 
 <div>
 	<h3>Lightbox</h3>
 	<p class="highlight">
+		Pure CSS lightbox which maintains markup simplicity.  A single wrapping lightbox div with
+		the ability to easily customize close button style/placement, background color
 	</p>
+
+	<h3>Support Required</h3>
+	<ul>
+		<li>Pseudo-select (:target)</li>
+		<li>Properties (max-width / min-width)</li>
+	</ul>
 
 	<a href="#kitten" class="thumbnail"><img src="http://placekitten.com/g/250/250" /></a>
 	<a href="#generic1" class="thumbnail"><img src="http://placehold.it/250/81D17A/000000" /></a>
@@ -73,4 +107,106 @@
 		<img id="generic3" src="http://placehold.it/900x1600/D19E7A/000000" />
 		<a href="##" class="close">Close</a>
 	</div>
+
+	<h3>CSS</h3>
+	<pre>
+		<code id="css" class="hljs">
+/*
+ * Operation
+ */
+.lightbox {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 100%;             /* position the block itself off the screen to not cover the page */
+	width: 100%;            /* width and height should be 100% to take up full view */
+	height: 100%;           /* if left was not 100%, this would mask the page itself */
+	padding: 0;
+	margin: 0;
+	text-align: center;     /* center the image itself */
+}
+
+.lightbox:before {
+	display: inline-block;  /* inline block allows for vertical centering */
+	vertical-align: middle; /* align this guy to the middle */
+	height: 100%;
+	content: '';
+}
+
+.thumbnail {
+	max-width: 250px;
+	max-height: 250px;
+}
+
+.lightbox  img,
+.lightbox .close {
+	display: none;
+}
+
+.lightbox img {
+	max-height: 75%;
+	max-width: 90%;
+	padding: 300%;      /* this combined with equal negative margin creates filler padding */
+	margin: -300%;      /* offsets the padding */
+	margin-left: -500%; /* offset left more to compensate for lightbox position */
+	vertical-align: middle;
+}
+
+.lightbox img:target {
+	display: inline-block;
+}
+
+.lightbox img:target ~ a.close {
+	display: block;
+	position: absolute;
+}
+
+/*
+ * Layout and Theme
+ */
+.lightbox img {
+	background-color: rgba(0,0,0,.75);
+}
+
+.lightbox a.close {
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 40px;
+	border: solid 3px #fff;
+	background-color: #000;
+	border-radius: 40px;
+	overflow: hidden;
+	top: 20px;
+	left: -100px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+	box-shadow: 0 0 20px #000;
+}
+
+.lightbox a.close:before {
+	display: block;
+	content: '❌';
+}
+		</code>
+	</pre>
+
+	<h3>Markup</h3>
+	<pre>
+		<code id="html" class="hljs">
+&lt;a href=&quot;#kitten&quot; class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;http://placekitten.com/g/250/250&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;#generic1&quot; class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;http://placehold.it/250/81D17A/000000&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;#generic2&quot; class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;http://placehold.it/250/7AADD1/000000&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;#generic3&quot; class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;http://placehold.it/250/D19E7A/000000&quot; /&gt;&lt;/a&gt;
+
+&lt;div class=&quot;lightbox&quot;&gt;
+	&lt;img id=&quot;kitten&quot; src=&quot;http://placekitten.com/800/800&quot; /&gt;
+	&lt;img id=&quot;generic1&quot; src=&quot;http://placehold.it/1024x768/81D17A/000000&quot; /&gt;
+	&lt;img id=&quot;generic2&quot; src=&quot;http://placehold.it/1600x900/7AADD1/000000&quot; /&gt;
+	&lt;img id=&quot;generic3&quot; src=&quot;http://placehold.it/900x1600/D19E7A/000000&quot; /&gt;
+	&lt;a href=&quot;##&quot; class=&quot;close&quot;&gt;Close&lt;/a&gt;
+&lt;/div&gt;
+		</code>
+	</pre>
 </div>
