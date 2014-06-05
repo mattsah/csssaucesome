@@ -112,88 +112,88 @@
 	<h3>CSS</h3>
 	<pre>
 		<code id="css" class="hljs">
-	/*
-	 * Operation
-	 */
-	.lightbox {
-		display: block;
-		position: fixed;
-		top: 0;
-		left: 100%;
-		width: 100%;
-		height: 100%;
-		padding: 0;
-		margin: 0;
-		text-align: center;
-	}
+/*
+ * Operation
+ */
+.lightbox {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
 
-	.lightbox:before {
-		display: inline-block;
-		vertical-align: middle;
-		height: 100%;
-		content: '';
-	}
+.lightbox:before {
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	content: '';
+}
 
-	.lightbox  img,
-	.lightbox .close {
-		display: none;
-	}
+.lightbox  img,
+.lightbox .close {
+	display: none;
+}
 
-	.lightbox img {
-		max-height: 75%;
-		max-width: 90%;
-		padding: 300%;
-		margin: -300%;
-		margin-left: -500%;
-		vertical-align: middle;
-	}
+.lightbox img {
+	max-height: 75%;
+	max-width: 90%;
+	padding: 300%;
+	margin: -300%;
+	margin-left: -500%;
+	vertical-align: middle;
+}
 
-	.lightbox img:target {
-		display: inline-block;
-	}
+.lightbox img:target {
+	display: inline-block;
+}
 
-	.lightbox img:target ~ a.close {
-		display: block;
-		position: absolute;
-	}
+.lightbox img:target ~ a.close {
+	display: block;
+	position: absolute;
+}
 
-	.lightbox a.close:before {
-		display: block;
-	}
+.lightbox a.close:before {
+	display: block;
+}
 
-	/*
-	 * Layout and Theme
-	 */
+/*
+ * Layout and Theme
+ */
 
-	.thumbnail {
-		max-width: 250px;
-		max-height: 250px;
-	}
+.thumbnail {
+	max-width: 250px;
+	max-height: 250px;
+}
 
-	.lightbox img {
-		background-color: rgba(0,0,0,.75);
-	}
+.lightbox img {
+	background-color: rgba(0,0,0,.75);
+}
 
-	.lightbox a.close {
-		top: 20px;
-		left: -100px;
-		width: 60px;
-		height: 60px;
-		line-height: 60px;
-		overflow: hidden;
-		border: solid 3px #fff;
-		border-radius: 40px;
-		box-shadow: 0 0 20px #000;
-		background-color: #000;
-		color: #fff;
-		font-size: 40px;
-		text-transform: uppercase;
-		text-decoration: none;
-	}
+.lightbox a.close {
+	top: 20px;
+	left: -100px;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	overflow: hidden;
+	border: solid 3px #fff;
+	border-radius: 40px;
+	box-shadow: 0 0 20px #000;
+	background-color: #000;
+	color: #fff;
+	font-size: 40px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
 
-	.lightbox a.close:before {
-		content: '❌';
-	}
+.lightbox a.close:before {
+	content: '❌';
+}
 		</code>
 	</pre>
 
