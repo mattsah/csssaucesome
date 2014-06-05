@@ -1,5 +1,4 @@
 <style>
-
 	/*
 	 * Operation
 	 */
@@ -20,11 +19,6 @@
 		vertical-align: middle;
 		height: 100%;
 		content: '';
-	}
-
-	.thumbnail {
-		max-width: 250px;
-		max-height: 250px;
 	}
 
 	.lightbox  img,
@@ -50,36 +44,43 @@
 		position: absolute;
 	}
 
+	.lightbox a.close:before {
+		display: block;
+	}
+
 	/*
 	 * Layout and Theme
 	 */
+
+	.thumbnail {
+		max-width: 250px;
+		max-height: 250px;
+	}
+
 	.lightbox img {
 		background-color: rgba(0,0,0,.75);
 	}
 
 	.lightbox a.close {
+		top: 20px;
+		left: -100px;
 		width: 60px;
 		height: 60px;
 		line-height: 60px;
-		font-size: 40px;
-		border: solid 3px #fff;
-		background-color: #000;
-		border-radius: 40px;
 		overflow: hidden;
-		top: 20px;
-		left: -100px;
+		border: solid 3px #fff;
+		border-radius: 40px;
+		box-shadow: 0 0 20px #000;
+		background-color: #000;
+		color: #fff;
+		font-size: 40px;
 		text-transform: uppercase;
 		text-decoration: none;
-		color: #fff;
-		box-shadow: 0 0 20px #000;
 	}
 
 	.lightbox a.close:before {
-		display: block;
 		content: '❌';
 	}
-
-
 </style>
 
 <div>
@@ -111,84 +112,88 @@
 	<h3>CSS</h3>
 	<pre>
 		<code id="css" class="hljs">
-/*
- * Operation
- */
-.lightbox {
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 100%;             /* position the block itself off the screen to not cover the page */
-	width: 100%;            /* width and height should be 100% to take up full view */
-	height: 100%;           /* if left was not 100%, this would mask the page itself */
-	padding: 0;
-	margin: 0;
-	text-align: center;     /* center the image itself */
-}
+	/*
+	 * Operation
+	 */
+	.lightbox {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
 
-.lightbox:before {
-	display: inline-block;  /* inline block allows for vertical centering */
-	vertical-align: middle; /* align this guy to the middle */
-	height: 100%;
-	content: '';
-}
+	.lightbox:before {
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+		content: '';
+	}
 
-.thumbnail {
-	max-width: 250px;
-	max-height: 250px;
-}
+	.lightbox  img,
+	.lightbox .close {
+		display: none;
+	}
 
-.lightbox  img,
-.lightbox .close {
-	display: none;
-}
+	.lightbox img {
+		max-height: 75%;
+		max-width: 90%;
+		padding: 300%;
+		margin: -300%;
+		margin-left: -500%;
+		vertical-align: middle;
+	}
 
-.lightbox img {
-	max-height: 75%;
-	max-width: 90%;
-	padding: 300%;      /* this combined with equal negative margin creates filler padding */
-	margin: -300%;      /* offsets the padding */
-	margin-left: -500%; /* offset left more to compensate for lightbox position */
-	vertical-align: middle;
-}
+	.lightbox img:target {
+		display: inline-block;
+	}
 
-.lightbox img:target {
-	display: inline-block;
-}
+	.lightbox img:target ~ a.close {
+		display: block;
+		position: absolute;
+	}
 
-.lightbox img:target ~ a.close {
-	display: block;
-	position: absolute;
-}
+	.lightbox a.close:before {
+		display: block;
+	}
 
-/*
- * Layout and Theme
- */
-.lightbox img {
-	background-color: rgba(0,0,0,.75);
-}
+	/*
+	 * Layout and Theme
+	 */
 
-.lightbox a.close {
-	width: 60px;
-	height: 60px;
-	line-height: 60px;
-	font-size: 40px;
-	border: solid 3px #fff;
-	background-color: #000;
-	border-radius: 40px;
-	overflow: hidden;
-	top: 20px;
-	left: -100px;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: #fff;
-	box-shadow: 0 0 20px #000;
-}
+	.thumbnail {
+		max-width: 250px;
+		max-height: 250px;
+	}
 
-.lightbox a.close:before {
-	display: block;
-	content: '❌';
-}
+	.lightbox img {
+		background-color: rgba(0,0,0,.75);
+	}
+
+	.lightbox a.close {
+		top: 20px;
+		left: -100px;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		overflow: hidden;
+		border: solid 3px #fff;
+		border-radius: 40px;
+		box-shadow: 0 0 20px #000;
+		background-color: #000;
+		color: #fff;
+		font-size: 40px;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.lightbox a.close:before {
+		content: '❌';
+	}
 		</code>
 	</pre>
 
